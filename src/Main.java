@@ -1,17 +1,19 @@
 public class Main {
     public static void main(String[] args) {
         // Task 1
-        byte clientOS = 1; // 0 — iOS, 1 — Android
+        byte clientOS = 0; // 0 — iOS, 1 — Android
 
         if (clientOS == 0) {
             System.out.println("Установите версию приложения для iOS по ссылке");
-        } else {
+        } else if (clientOS == 1) {
             System.out.println("Установите версию приложения для Android по ссылке");
+        } else {
+            System.out.println("Некорректное значение clientOS: " + clientOS);
         }
 
         // Task 2
-        byte clientOS2 = 1; // 0 — iOS, 1 — Android
-        int clientDeviceYear = 2020;
+        byte clientOS2 = 0; // 0 — iOS, 1 — Android
+        int clientDeviceYear = 2013;
 
         if (clientOS2 == 0) {
             if (clientDeviceYear >= 2015) {
@@ -19,12 +21,14 @@ public class Main {
             } else {
                 System.out.println("Установите облегченную версию приложения для iOS по ссылке");
             }
-        } else {
+        } else if (clientOS2 == 1) {
             if (clientDeviceYear >= 2015) {
                 System.out.println("Установите версию приложения для Android по ссылке");
             } else {
                 System.out.println("Установите облегченную версию приложения для Android по ссылке");
             }
+        } else {
+            System.out.println("Некорректное значение clientOS2: " + clientOS2);
         }
 
         // Task 3
@@ -37,7 +41,7 @@ public class Main {
         }
 
         // Task 4
-        int deliveryDistance = 10;
+        int deliveryDistance = 30;
         int deliveryDays = 1;
 
         if (deliveryDistance > 20) {
@@ -46,11 +50,18 @@ public class Main {
         if (deliveryDistance > 60) {
             deliveryDays++;
         }
+        if (deliveryDistance > 100) {
+            deliveryDays = 0;
+        }
 
-        System.out.println("Потребуется дней: " + deliveryDays);
+        if (deliveryDays > 0) {
+            System.out.println("Потребуется дней: " + deliveryDays);
+        } else {
+            System.out.println("Доставка в ваш регион недоступна");
+        }
 
         // Task 5
-        int monthNumber = 13;
+        int monthNumber = 1;
 
         switch (monthNumber) {
             case 12:
