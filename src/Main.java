@@ -87,5 +87,52 @@ public class Main {
             default:
                 System.out.println("Некорректный месяц: " + monthNumber);
         }
+
+        // Task 6
+        int age = 23;
+        int salary = 40_000;
+        int creditLimit = 0;
+
+        if (age >= 23) {
+            creditLimit = 3 * salary;
+        } else {
+            creditLimit = 2 * salary;
+        }
+
+        if (salary >= 50_000 && salary < 80_000) {
+            creditLimit *= 1.2;
+        } else if (salary >= 80_000) {
+            creditLimit *= 1.5;
+        }
+
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + creditLimit + " рублей");
+
+        // Task 7
+        int age2 = 20;
+        int salary2 = 65_000;
+        int wantedSum = 330_000;
+        int maxMonthlyPayment = salary2 / 2;
+        double loanMonthlyPayment = 0; // monthly loan payment
+        double intRate = 10; // %
+
+        if (age2 < 23) {
+            intRate += 1;
+        } else if (age2 >= 23 && age2 < 30) {
+            intRate += 0.5;
+        }
+
+        if (salary2 > 80_000) {
+            intRate -= 0.7;
+        }
+
+        loanMonthlyPayment = (wantedSum + wantedSum / 100 * intRate) / 12;
+
+        if (maxMonthlyPayment >= loanMonthlyPayment) {
+            System.out.println("Максимальный платеж при ЗП " + salary2 + " равен " + maxMonthlyPayment + " рублей. " +
+                    "Платеж по кредиту " + loanMonthlyPayment + " рублей. Одобрено :)");
+        } else {
+            System.out.println("Максимальный платеж при ЗП " + salary2 + " равен " + maxMonthlyPayment + " рублей. " +
+                    "Платеж по кредиту " + loanMonthlyPayment + " рублей. Отказано :(");
+        }
     }
 }
